@@ -51,6 +51,7 @@ enum class ExamMode : int8_t {
     NoSym = 2,
     NoSymNoText = 3,
     Dutch = 4,
+    LightOnly = 5,
   };
 
 }

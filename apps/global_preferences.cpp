@@ -8,7 +8,7 @@ GlobalPreferences * GlobalPreferences::sharedGlobalPreferences() {
 GlobalPreferences::ExamMode GlobalPreferences::examMode() const {
   if (m_examMode == ExamMode::Unknown) {
     uint8_t mode = Ion::ExamMode::FetchExamMode();
-    assert(mode >= 0 && mode < 5); // mode can be cast in ExamMode (Off, Standard, NoSym, Dutch or NoSymNoText)
+    assert(mode >= 0 && mode < 6); // mode can be cast in ExamMode (Off, Standard, NoSym, Dutch, NoSymNoText, LightOnly)
     m_examMode = (ExamMode)mode;
   }
   return m_examMode;
@@ -20,6 +20,7 @@ GlobalPreferences::ExamMode GlobalPreferences::tempExamMode() const {
 
 
 void GlobalPreferences::setExamMode(ExamMode mode) {
+    return;  // TODO: This fully disable exam mode except for the visual blink
   ExamMode currentMode = examMode();
   if (currentMode == mode) {
     return;
